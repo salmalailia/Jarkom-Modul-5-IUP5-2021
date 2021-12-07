@@ -12,7 +12,7 @@ Khairi Wiryawan     (05111942000023)
 
 # Module 5
 
-#### (A) Your first task is to create a network topology according to the design given by Luffy below:
+## (A) Your first task is to create a network topology according to the design given by Luffy below:
 
 Description : 	
 
@@ -32,15 +32,17 @@ The number of hosts on Fukurou is 200 hosts
 
 ![1638796866144](https://user-images.githubusercontent.com/73702347/145006303-9df4680b-7e1e-4ddf-8420-bdab5afd5e99.jpg)
 
-#### (B) Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
+## (B) Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
+## (C) You are also required to do routing so that every device on the network can connect.
+## (D) The next task is to assign ips to the Blueno, Cipher, Fukurou, and Elena subnets dynamically using the help of a DHCP server. Then you remember that you have to set DHCP Relay on the router that connects it.
 
 ![1638868914600](https://user-images.githubusercontent.com/73702347/145006315-3f3aca41-9add-469f-b4a8-9c85b82b081a.jpg)
 
 ![Modul5](https://user-images.githubusercontent.com/73702347/145011901-fa62bfbd-59c0-48e5-b085-bd92cbad38e8.jpeg)
 
-### SUBNETTING 
+SUBNETTING 
 
-##### Water7
+Water7
 
 	auto eth0
 	iface eth0 inet static
@@ -63,7 +65,7 @@ The number of hosts on Fukurou is 200 hosts
 	address 10.40.0.1
  	netmask 255.255.252.0
 
-##### Foosha
+Foosha
 
 	auto eth0
 	iface eth0 inet dhcp
@@ -79,7 +81,7 @@ The number of hosts on Fukurou is 200 hosts
 	address 10.40.7.149
 	netmask 255.255.255.252
 
-##### Guanhao
+Guanhao
 
 	auto eth0
 	iface eth0 inet static
@@ -102,7 +104,7 @@ The number of hosts on Fukurou is 200 hosts
  	address 10.40.4.1
  	netmask 255.255.254.0
 
-##### Doriki
+Doriki
 	
 	auto eth0
 	iface eth0 inet static
@@ -110,7 +112,7 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.129
 
-##### Jipangu
+Jipangu
 	
 	auto eth0
 	iface eth0 inet static
@@ -118,7 +120,7 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.129
 
-##### Jorge
+Jorge
 
 	auto eth0
 	iface eth0 inet static
@@ -126,7 +128,7 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.137
 
-##### Maingate
+Maingate
 
 	auto eth0
 	iface eth0 inet static
@@ -134,33 +136,33 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.137
 
-##### Blueno
+Blueno
 
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 5a:c1:3a:85:39:90
 
-##### Cipher
+Cipher
 	
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 6e:25:8a:e4:b5:8e
 
-##### Elena
+Elena
 	
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 96:4a:a5:96:55:23
 
-##### Fukurou
+Fukurou
 	
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 12:90:09:c6:0c:be
 
-###### SUBNETTING FOR "DHCP"
+SUBNETTING FOR "DHCP"
 
-@ /etc/dhcp/dhcpd.conf Jipangu
+In /etc/dhcp/dhcpd.conf Jipangu
 
 	subnet 10.40.7.0 netmask 255.255.255.128 {
     	range 10.40.7.2 10.40.7.126;
@@ -218,22 +220,26 @@ The number of hosts on Fukurou is 200 hosts
     	fixed-address 10.40.6.2;
 	}
 
-	# Routing dari Jipangu ke router Water7
+Routing from Jipangu to router Water7
+
 	subnet 10.40.7.128 netmask 255.255.255.248 {
         	option routers 10.40.7.129;
 	}
 
-	# Routing dari Jipangu ke router Guanhao
+Routing from Jipangu to router Guanhao
+	
 	subnet 10.40.7.136 netmask 255.255.255.248 {
         	option routers 10.40.7.137;
 	}
 
-	# Routing dari Jipangu ke router Foosha
+Routing from Jipangu to router Foosha
+
 	subnet 10.40.7.144 netmask 255.255.255.252 {
         	option routers 10.40.7.146;
 	}
 
-	# Routing dari Foosha ke Guanhao
+Routing from Foosha to Guanhao
+
 	subnet 10.40.7.148 netmask 255.255.255.252 {
         	option routers 10.40.7.149;
 	}
@@ -245,3 +251,51 @@ The number of hosts on Fukurou is 200 hosts
 
 	/etc/default/isc-dhcp-server
 	[SS an isc-dhcp-server]
+
+routing @ Foosha
+#left side
+	
+	route add -net 10.40.7.0 netmask 255.255.255.128 gw 10.40.7.145
+	route add -net 10.40.7.128 netmask 255.255.255.248 gw 10.40.7.145
+	route add -net 10.40.0.0 netmask 255.255.252.0 gw 10.40.7.145
+
+#right side
+
+	route add -net 10.40.6.0 netmask 255.255.255.0 gw 10.40.7.150
+	route add -net 10.40.7.136 netmask 255.255.255.248 gw 10.40.7.150
+	route add -net 10.40.4.0 netmask 255.255.254.0 gw 10.40.7.150
+
+routing @ Water7
+
+	route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.40.7.146
+
+routing @ Guanhao
+
+	route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.40.7.149
+
+DHCP
+
+/isc-dhcp-relay @ Water7, Foosha, & Guanhao
+[relay water7]
+[relay foosha]
+[relay guanhao]
+
+No 1. In order for your topology to be able to access outside, you are required to configure Foosha using iptables, but Luffy doesn't want to use MASQUERADE.
+Answer :
+
+	iptables -t nat -A POSTROUTING -s 10.40.0.0/21 -o eth0 -j SNAT --to-source 192.168.122.127
+
+Test :
+[SS #1]
+
+No 4. Access from the Blueno and Cipher subnets is only allowed from 07.00 - 15.00 Monday to Thursday.
+Answer :
+
+	iptables -A INPUT -s 10.40.7.0/25 -m time --timestart 07:00 --timestop 15:00 --weekdays Mon,Tue,Wed,Thu -j ACCEPT
+	iptables -A INPUT -s 10.40.7.0/25 -j REJECT
+
+	iptables -A INPUT -s 10.40.0.0/22 -m time --timestart 07:00 --timestop 15:00 --weekdays Mon,Tue,Wed,Thu -j ACCEPT
+	iptables -A INPUT -s 10.40.0.0/22 -j REJECT
+
+Test :
+[SS #4]
