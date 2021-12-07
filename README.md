@@ -12,26 +12,236 @@ Khairi Wiryawan     (05111942000023)
 
 # Module 5
 
+## (A) Your first task is to create a network topology according to the design given by Luffy below:
+
 Description : 	
-		
-		Doriki is a DNS Server
 
-		Jipangu is a DHCP Server
+Doriki is a DNS Server
 
-		Maingate and Jorge are Web Servers
+Jipangu is a DHCP Server
 
-		Number of Hosts on Blueno is 100 hosts
+Maingate and Jorge are Web Servers
 
-		Number of Hosts in Cipher is 700 hosts
+Number of Hosts on Blueno is 100 hosts
 
-		Total Hosts on Elena is 300 hosts
+Number of Hosts in Cipher is 700 hosts
 
-		The number of hosts on Fukurou is 200 hosts
+Total Hosts on Elena is 300 hosts
+
+The number of hosts on Fukurou is 200 hosts
 
 ![1638796866144](https://user-images.githubusercontent.com/73702347/145006303-9df4680b-7e1e-4ddf-8420-bdab5afd5e99.jpg)
 
-Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
+## (B) Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
 
 ![1638868914600](https://user-images.githubusercontent.com/73702347/145006315-3f3aca41-9add-469f-b4a8-9c85b82b081a.jpg)
 
 ![Modul5](https://user-images.githubusercontent.com/73702347/145011901-fa62bfbd-59c0-48e5-b085-bd92cbad38e8.jpeg)
+
+#SUBNETTING 
+
+#Water7
+
+	auto eth0
+	iface eth0 inet static
+ 	address 10.40.7.145
+ 	netmask 255.255.255.252
+ 	gateway 10.40.7.146
+
+	auto eth1
+	iface eth1 inet static
+ 	address 10.40.7.1
+ 	netmask 255.255.255.128
+
+	auto eth2
+	iface eth2 inet static
+ 	address 10.40.7.129
+ 	netmask 255.255.255.248
+
+	auto eth3
+	iface eth3 inet static
+	address 10.40.0.1
+ 	netmask 255.255.252.0
+
+#Foosha
+
+	auto eth0
+	iface eth0 inet dhcp
+	hwaddress ether ca:7a:3f:7a:9e:43
+
+	auto eth1
+	iface eth1 inet static
+	address 10.40.7.146
+ 	netmask 255.255.255.252
+
+	auto eth2
+	iface eth2 inet static
+	address 10.40.7.149
+	netmask 255.255.255.252
+
+#Guanhao
+
+	auto eth0
+	iface eth0 inet static
+ 	address 10.40.7.150
+ 	netmask 255.255.255.252
+ 	gateway 10.40.7.149
+
+	auto eth1
+	iface eth1 inet static
+ 	address 10.40.6.1
+ 	netmask 255.255.255.0
+
+	auto eth2
+	iface eth2 inet static
+ 	address 10.40.7.137
+ 	netmask 255.255.255.248
+
+	auto eth3
+	iface eth3 inet static
+ 	address 10.40.4.1
+ 	netmask 255.255.254.0
+
+#Doriki
+	
+	auto eth0
+	iface eth0 inet static
+ 	address 10.40.7.130
+ 	netmask 255.255.255.248
+ 	gateway 10.40.7.129
+
+#Jipangu
+	
+	auto eth0
+	iface eth0 inet static
+ 	address 10.40.7.131
+ 	netmask 255.255.255.248
+ 	gateway 10.40.7.129
+
+#Jorge
+
+	auto eth0
+	iface eth0 inet static
+ 	address 10.40.7.138
+ 	netmask 255.255.255.248
+ 	gateway 10.40.7.137
+
+#Maingate
+
+	auto eth0
+	iface eth0 inet static
+ 	address 10.40.7.139
+ 	netmask 255.255.255.248
+ 	gateway 10.40.7.137
+
+#Blueno
+
+	auto eth0
+	iface eth0 inet dhcp
+	hwaddress ether 5a:c1:3a:85:39:90
+
+#Cipher
+	
+	auto eth0
+	iface eth0 inet dhcp
+	hwaddress ether 6e:25:8a:e4:b5:8e
+
+#Elena
+	
+	auto eth0
+	iface eth0 inet dhcp
+	hwaddress ether 96:4a:a5:96:55:23
+
+#Fukurou
+	
+	auto eth0
+	iface eth0 inet dhcp
+	hwaddress ether 12:90:09:c6:0c:be
+
+#SUBNETTING FOR "DHCP"
+
+Di /etc/dhcp/dhcpd.conf Jipangu
+
+	subnet 10.40.7.0 netmask 255.255.255.128 {
+    	range 10.40.7.2 10.40.7.126;
+    	option routers 10.40.7.1;
+    	option broadcast-address 10.40.7.127;
+    	option domain-name-servers 10.40.7.130;
+    	default-lease-time 720;
+    	max-lease-time 7200;
+	}
+
+	subnet 10.40.0.0 netmask 255.255.252.0 {
+    	range 10.40.0.2 10.40.3.254;
+    	option routers 10.40.0.1;
+    	option broadcast-address 10.40.3.255;
+    	option domain-name-servers 10.40.7.130;
+    	default-lease-time 720;
+    	max-lease-time 7200;
+	}
+
+	host Blueno{
+    	hardware ethernet 5a:c1:3a:85:39:90;
+    	fixed-address 10.40.7.3;
+	}
+
+	host Cipher{
+    	hardware ethernet 6e:25:8a:e4:b5:8e;
+    	fixed-address 10.40.0.3;
+	}
+
+	subnet 10.40.4.0 netmask 255.255.254.0 {
+    	range 10.40.4.1 10.40.5.254;
+    	option routers 10.40.4.1;
+    	option broadcast-address 10.40.5.255;
+    	option domain-name-servers 10.40.7.130;
+    	default-lease-time 720;
+    	max-lease-time 7200;
+	}
+
+	subnet 10.40.6.0 netmask 255.255.255.0 {
+    	range 10.40.6.1 10.40.6.254;
+    	option routers 10.40.6.1;
+    	option broadcast-address 10.40.6.255;
+    	option domain-name-servers 10.40.7.130;
+    	default-lease-time 720;
+    	max-lease-time 7200;
+	}
+
+	host Elena{
+    	hardware ethernet 96:4a:a5:96:55:23;
+    	fixed-address 10.40.4.2;
+	}
+
+	host Fukurou{
+    	hardware ethernet 12:90:09:c6:0c:be;
+    	fixed-address 10.40.6.2;
+	}
+
+# Routing dari Jipangu ke router Water7
+	subnet 10.40.7.128 netmask 255.255.255.248 {
+        	option routers 10.40.7.129;
+	}
+
+# Routing dari Jipangu ke router Guanhao
+	subnet 10.40.7.136 netmask 255.255.255.248 {
+        	option routers 10.40.7.137;
+	}
+
+# Routing dari Jipangu ke router Foosha
+	subnet 10.40.7.144 netmask 255.255.255.252 {
+        	option routers 10.40.7.146;
+	}
+
+# Routing dari Foosha ke Guanhao
+	subnet 10.40.7.148 netmask 255.255.255.252 {
+        	option routers 10.40.7.149;
+	}
+	
+	host FOOSHA {
+    	hardware ethernet ca:7a:3f:7a:9e:43;
+    	fixed-address 192.168.122.98;
+	}
+
+	/etc/default/isc-dhcp-server
+	[SS an isc-dhcp-server]
