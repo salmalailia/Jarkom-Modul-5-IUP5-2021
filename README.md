@@ -162,7 +162,10 @@ Fukurou
 	iface eth0 inet dhcp
 	hwaddress ether 12:90:09:c6:0c:be
 
-SUBNETTING FOR "DHCP"
+SUBNETTING "DHCP"
+
+In /etc/default/isc-dhcp-server Jipangu
+[server jipangu]
 
 In /etc/dhcp/dhcpd.conf Jipangu
 
