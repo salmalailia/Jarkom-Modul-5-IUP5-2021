@@ -12,7 +12,7 @@ Khairi Wiryawan     (05111942000023)
 
 # Module 5
 
-# (A) Your first task is to create a network topology according to the design given by Luffy below:
+(A) Your first task is to create a network topology according to the design given by Luffy below:
 
 Description : 	
 
@@ -32,9 +32,9 @@ The number of hosts on Fukurou is 200 hosts
 
 ![1638796866144](https://user-images.githubusercontent.com/73702347/145006303-9df4680b-7e1e-4ddf-8420-bdab5afd5e99.jpg)
 
-## (B) Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
-## (C) You are also required to do routing so that every device on the network can connect.
-## (D) The next task is to assign ips to the Blueno, Cipher, Fukurou, and Elena subnets dynamically using the help of a DHCP server. Then you remember that you have to set DHCP Relay on the router that connects it.
+(B) Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
+(C) You are also required to do routing so that every device on the network can connect.
+(D) The next task is to assign ips to the Blueno, Cipher, Fukurou, and Elena subnets dynamically using the help of a DHCP server. Then you remember that you have to set DHCP Relay on the router that connects it.
 
 ![1638868914600](https://user-images.githubusercontent.com/73702347/145006315-3f3aca41-9add-469f-b4a8-9c85b82b081a.jpg)
 
