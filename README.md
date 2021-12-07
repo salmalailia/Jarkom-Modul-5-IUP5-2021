@@ -165,7 +165,7 @@ Fukurou
 SUBNETTING "DHCP"
 
 In /etc/default/isc-dhcp-server Jipangu
-[server jipangu]
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/server%20jipangu.jpeg)
 
 In /etc/dhcp/dhcpd.conf Jipangu
 
@@ -254,8 +254,11 @@ Routing from Foosha to Guanhao
     	fixed-address 192.168.122.98;
 	}
 
-	/etc/default/isc-dhcp-server
-	[SS an isc-dhcp-server]
+/etc/default/isc-dhcp-server
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/dhcp1.jpeg)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/dhcp2.jpeg)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/dhcp3.jpeg)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/dhcp4.jpeg)
 
 routing @ Foosha
 #left side
@@ -281,9 +284,9 @@ routing @ Guanhao
 DHCP
 
 /isc-dhcp-relay @ Water7, Foosha, & Guanhao
-[relay water7]
-[relay foosha]
-[relay guanhao]
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/relay%20water7.jpeg)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/relay%20foosha.jpeg)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/relay%20guanhao.jpeg)
 
 No 1. In order for your topology to be able to access outside, you are required to configure Foosha using iptables, but Luffy doesn't want to use MASQUERADE.
 Answer :
@@ -303,4 +306,4 @@ Answer :
 	iptables -A INPUT -s 10.40.0.0/22 -j REJECT
 
 Test :
-[SS #4]
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/ss%20%234.jpeg)
