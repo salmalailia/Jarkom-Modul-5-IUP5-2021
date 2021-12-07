@@ -30,7 +30,7 @@ Keterangan :
 
 ![1638796866144](https://user-images.githubusercontent.com/73702347/145006303-9df4680b-7e1e-4ddf-8420-bdab5afd5e99.jpg)
 
-## Karena kalian telah belajar subnetting dan routing, Luffy ingin meminta kalian untuk membuat topologi tersebut menggunakan teknik CIDR atau VLSM. Setelah melakukan subnetting
+Karena kalian telah belajar subnetting dan routing, Luffy ingin meminta kalian untuk membuat topologi tersebut menggunakan teknik CIDR atau VLSM. Setelah melakukan subnetting.
 
 ![1638868914600](https://user-images.githubusercontent.com/73702347/145006315-3f3aca41-9add-469f-b4a8-9c85b82b081a.jpg)
 
