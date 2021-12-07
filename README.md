@@ -12,7 +12,7 @@ Khairi Wiryawan     (05111942000023)
 
 # Module 5
 
-(A) Your first task is to create a network topology according to the design given by Luffy below:
+## (A) Your first task is to create a network topology according to the design given by Luffy below:
 
 Description : 	
 
@@ -32,9 +32,9 @@ The number of hosts on Fukurou is 200 hosts
 
 ![1638796866144](https://user-images.githubusercontent.com/73702347/145006303-9df4680b-7e1e-4ddf-8420-bdab5afd5e99.jpg)
 
-(B) Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
-(C) You are also required to do routing so that every device on the network can connect.
-(D) The next task is to assign ips to the Blueno, Cipher, Fukurou, and Elena subnets dynamically using the help of a DHCP server. Then you remember that you have to set DHCP Relay on the router that connects it.
+## (B) Since you have learned subnetting and routing, Luffy would like to ask you to create the topology using CIDR or VLSM techniques. After doing subnetting.
+## (C) You are also required to do routing so that every device on the network can connect.
+## (D) The next task is to assign ips to the Blueno, Cipher, Fukurou, and Elena subnets dynamically using the help of a DHCP server. Then you remember that you have to set DHCP Relay on the router that connects it.
 
 ![1638868914600](https://user-images.githubusercontent.com/73702347/145006315-3f3aca41-9add-469f-b4a8-9c85b82b081a.jpg)
 
@@ -220,26 +220,22 @@ In /etc/dhcp/dhcpd.conf Jipangu
     	fixed-address 10.40.6.2;
 	}
 
-Routing from Jipangu to router Water7
-
+	#Routing from Jipangu to router Water7
 	subnet 10.40.7.128 netmask 255.255.255.248 {
         	option routers 10.40.7.129;
 	}
 
-Routing from Jipangu to router Guanhao
-	
+	#Routing from Jipangu to router Guanhao
 	subnet 10.40.7.136 netmask 255.255.255.248 {
         	option routers 10.40.7.137;
 	}
 
-Routing from Jipangu to router Foosha
-
+	#Routing from Jipangu to router Foosha
 	subnet 10.40.7.144 netmask 255.255.255.252 {
         	option routers 10.40.7.146;
 	}
 
-Routing from Foosha to Guanhao
-
+	#Routing from Foosha to Guanhao
 	subnet 10.40.7.148 netmask 255.255.255.252 {
         	option routers 10.40.7.149;
 	}
@@ -249,18 +245,17 @@ Routing from Foosha to Guanhao
     	fixed-address 192.168.122.98;
 	}
 
-	/etc/default/isc-dhcp-server
-	[SS an isc-dhcp-server]
+/etc/default/isc-dhcp-server
+[SS an isc-dhcp-server]
 
 routing @ Foosha
-#left side
 	
+	#left side
 	route add -net 10.40.7.0 netmask 255.255.255.128 gw 10.40.7.145
 	route add -net 10.40.7.128 netmask 255.255.255.248 gw 10.40.7.145
 	route add -net 10.40.0.0 netmask 255.255.252.0 gw 10.40.7.145
 
-#right side
-
+	#right side
 	route add -net 10.40.6.0 netmask 255.255.255.0 gw 10.40.7.150
 	route add -net 10.40.7.136 netmask 255.255.255.248 gw 10.40.7.150
 	route add -net 10.40.4.0 netmask 255.255.254.0 gw 10.40.7.150
