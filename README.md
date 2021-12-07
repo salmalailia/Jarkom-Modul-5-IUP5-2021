@@ -38,9 +38,9 @@ The number of hosts on Fukurou is 200 hosts
 
 ![Modul5](https://user-images.githubusercontent.com/73702347/145011901-fa62bfbd-59c0-48e5-b085-bd92cbad38e8.jpeg)
 
-#SUBNETTING 
+SUBNETTING 
 
-#Water7
+Water7
 
 	auto eth0
 	iface eth0 inet static
@@ -63,7 +63,7 @@ The number of hosts on Fukurou is 200 hosts
 	address 10.40.0.1
  	netmask 255.255.252.0
 
-#Foosha
+Foosha
 
 	auto eth0
 	iface eth0 inet dhcp
@@ -79,7 +79,7 @@ The number of hosts on Fukurou is 200 hosts
 	address 10.40.7.149
 	netmask 255.255.255.252
 
-#Guanhao
+Guanhao
 
 	auto eth0
 	iface eth0 inet static
@@ -102,7 +102,7 @@ The number of hosts on Fukurou is 200 hosts
  	address 10.40.4.1
  	netmask 255.255.254.0
 
-#Doriki
+Doriki
 	
 	auto eth0
 	iface eth0 inet static
@@ -110,7 +110,7 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.129
 
-#Jipangu
+Jipangu
 	
 	auto eth0
 	iface eth0 inet static
@@ -118,7 +118,7 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.129
 
-#Jorge
+Jorge
 
 	auto eth0
 	iface eth0 inet static
@@ -126,7 +126,7 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.137
 
-#Maingate
+Maingate
 
 	auto eth0
 	iface eth0 inet static
@@ -134,33 +134,33 @@ The number of hosts on Fukurou is 200 hosts
  	netmask 255.255.255.248
  	gateway 10.40.7.137
 
-#Blueno
+Blueno
 
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 5a:c1:3a:85:39:90
 
-#Cipher
+Cipher
 	
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 6e:25:8a:e4:b5:8e
 
-#Elena
+Elena
 	
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 96:4a:a5:96:55:23
 
-#Fukurou
+Fukurou
 	
 	auto eth0
 	iface eth0 inet dhcp
 	hwaddress ether 12:90:09:c6:0c:be
 
-#SUBNETTING FOR "DHCP"
+SUBNETTING FOR "DHCP"
 
-Di /etc/dhcp/dhcpd.conf Jipangu
+In /etc/dhcp/dhcpd.conf Jipangu
 
 	subnet 10.40.7.0 netmask 255.255.255.128 {
     	range 10.40.7.2 10.40.7.126;
