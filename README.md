@@ -218,22 +218,22 @@ In /etc/dhcp/dhcpd.conf Jipangu
     	fixed-address 10.40.6.2;
 	}
 
-# Routing dari Jipangu ke router Water7
+# Routing from Jipangu to router Water7
 	subnet 10.40.7.128 netmask 255.255.255.248 {
         	option routers 10.40.7.129;
 	}
 
-# Routing dari Jipangu ke router Guanhao
+# Routing from Jipangu to router Guanhao
 	subnet 10.40.7.136 netmask 255.255.255.248 {
         	option routers 10.40.7.137;
 	}
 
-# Routing dari Jipangu ke router Foosha
+# Routing from Jipangu to router Foosha
 	subnet 10.40.7.144 netmask 255.255.255.252 {
         	option routers 10.40.7.146;
 	}
 
-# Routing dari Foosha ke Guanhao
+# Routing from Foosha to Guanhao
 	subnet 10.40.7.148 netmask 255.255.255.252 {
         	option routers 10.40.7.149;
 	}
