@@ -291,7 +291,7 @@ Answer :
 	iptables -t nat -A POSTROUTING -s 10.40.0.0/21 -o eth0 -j SNAT --to-source 192.168.122.127
 
 Test :
-https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/SS%20%231.jpeg
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/SS%20%231.jpeg)
 
 No 4. Access from the Blueno and Cipher subnets is only allowed from 07.00 - 15.00 Monday to Thursday.
 Answer :
