@@ -305,6 +305,11 @@ Test :
 
 ![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/SS%20%231.jpeg)
 
+No.2
+
+	iptables -A FORWARD -p tcp --dport 80 -d 10.40.7.128/29 -i eth0 -j DROP
+
+
 No 4. Access from the Blueno and Cipher subnets is only allowed from 07.00 - 15.00 Monday to Thursday.
 Answer :
 
@@ -316,4 +321,17 @@ Answer :
 
 Test :
 
-![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/ss%20%234.jpeg)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/soal%204.png)
+
+No. 5
+	iptables -A INPUT -s 10.40.4.0/25 -m time --timestart 15:01 --timestop 23:59 -j ACCEPT
+	iptables -A INPUT -s 10.40.4.0/25 -m time --timestart 00:00 --timestop 06:59 -j ACCEPT
+	iptables -A INPUT -s 10.40.4.0/25 -j REJECT
+
+	iptables -A INPUT -s 10.40.6.0/22 -m time --timestart 15:01 --timestop 23:59 -j ACCEPT
+	iptables -A INPUT -s 10.40.6.0/22 -m time --timestart 00:00 --timestop 06:59 -j ACCEPT
+	iptables -A INPUT -s 10.40.6.0/22 -j REJECT
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/soal%205.png)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/soal%205.1.png)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/soal%205.1.png)
+![alt text](https://github.com/salmalailia/Jarkom-Modul-5-IUP5-2021/blob/main/SS%205/soal%205.1.png)
